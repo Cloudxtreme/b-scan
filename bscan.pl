@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# Drone 
+# bscan 
 # harvests service banner from a 
 # ip or ip range then saves  
 # any findings to a log named "results"
