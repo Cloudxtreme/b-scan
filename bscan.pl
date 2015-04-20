@@ -6,8 +6,7 @@
 # any findings to a log named "results"
 #
 # by  xor-function 
-# @ xor-labs
-# 
+#  
 
 
 use strict;
