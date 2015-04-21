@@ -5,8 +5,10 @@
 # ip or ip range then saves  
 # any findings to a log named "results"
 #
-# by  xor-function 
-#  
+# by Jonathan D Gonzalez || xor-function
+# license BSD-3
+ 
+
 
 
 use strict;
