@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 #
 # bscan 
-# harvests service banner from a 
+# harvests service banners from a 
 # ip or ip range then saves  
 # any findings to a log named "results"
 #
@@ -28,8 +28,6 @@ my $log = "results";
 if ( @ARGV == 0 ) { die "[!] use $0 [host ip or valid network ip with cidr netmask]\n"; }
 
 $net = $ARGV[0];
-
-# unless ( $net =~ /(\.0)/ or $net =~ /(\.255)/ ) { die "fail\n"; }
 
 sub set_url {
 	my $prefix;
@@ -60,12 +58,12 @@ sub gen_hosts {
      } else {
  
         $cidr = 'true';
-
 	$ip = new Net::IP ($net) || die "invalid ip address range\n";               
-        # Loop
+	
 	do 
  	{
 		$host = $ip->ip();
+		# do not scan ip address of network or broadcast ip 
 		unless ( $host =~ /(\.0)/ or $host =~ /(\.255)/ ) {
        			# print $host, "\n";
 			push @hosts,$host;
@@ -106,7 +104,7 @@ sub chk_ports {
 		if (defined($banner))        
 		   { win(); } 
                    else { fail(); }
-		   #next;             
+             
           } 
     
 
@@ -114,7 +112,7 @@ sub chk_ports {
 	 {
 
 
-		# Removed default errmode action "die" with a blank subrouting                
+		# removed default Net::Telent errmode action "die" with a blank subroutine                
 		if ( $conn = new Net::Telnet( Host => $host,
 		                               Timeout => 5, 
                                           Errmode => sub{ }, ))
@@ -125,7 +123,6 @@ sub chk_ports {
                        win();
                    } else 
                        { fail();}
-          
      
 	 } 
 
@@ -148,7 +145,6 @@ sub chk_ports {
 		    } else 
                        { fail(); }
 
-
 	 }
 
 
@@ -165,7 +161,7 @@ sub chk_ports {
 
 print "\n";
 print "--------------------------------\n";
-print "         D  R  O  N  E          \n";
+print "         B  S  C  A  N          \n";
 print "--------------------------------\n";
 
 
