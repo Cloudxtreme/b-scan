@@ -6,7 +6,7 @@
 # any findings to a log named "results"
 #
 # by Jonathan D Gonzalez || xor-function
-# license BSD-3
+
  
 
 
