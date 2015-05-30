@@ -95,10 +95,10 @@ sub get_telnet {
         # removed default Net::Telent errmode action "die" with a blank subroutine
         if ( my $conn = new Net::Telnet( Host => $chost, Timeout => 5, Errmode => sub{ }, )) {
 
-       ($bnr) = $conn->waitfor('/login: ?/');
-        $conn->close;
-          $nbnr = win($bnr, "23");
-      }
+                ($bnr) = $conn->waitfor('/login: ?/');
+                $conn->close;
+                $nbnr = win($bnr, "23");
+        }
           else {
                 fail("23");
         }
@@ -119,9 +119,9 @@ sub getsshmail {
 
                 print $conn "GET \n";        
                 while (readline($conn)) {
-            if (defined($_)) { $bnr .= $_; }
-            last;                            
-        }
+                        if (defined($_)) { $bnr .= $_; }
+                        last;                            
+                }
                 close $conn;
                 $nbnr = win($bnr, $cport);
 
