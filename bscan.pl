@@ -180,9 +180,9 @@ sub chk_ports {
 
                 open(my $fh, '+>>', "$slog" ) or die "Could not open file $!";
                 print $fh "\n   Port : $port : ";
-                if (defined($banner))
-                        { print $fh "$banner";}
-                        else {
+                if (defined($banner)) { 
+                        print $fh "$banner";
+                } else {
                         print $fh "no service detected";
                 }
 
